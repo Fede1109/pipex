@@ -6,7 +6,7 @@
 /*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:03:27 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/11/28 18:19:57 by fdiaz-gu         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:24:06 by fdiaz-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,20 @@ void	ft_error(void)
 	exit(EXIT_FAILURE);
 }
 
+char	*get_route()
+{
+	
+}
+
 void	execute_command(char **argv, char **envp)
 {
 	char	**cmd;
+	char	*route;
 
 	cmd = ft_split(argv, " ");
-
-	if (execv(, cmd, envp) == -1)
+	route = get_route();
+	if (execve(route, cmd, envp) == -1)
 		ft_error();
-
 }
 
 void	child_process(char **argv, int *fd, char **envp)
