@@ -6,7 +6,7 @@
 /*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:03:27 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/11/28 18:24:06 by fdiaz-gu         ###   ########.fr       */
+/*   Updated: 2023/11/28 19:03:29 by fdiaz-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_error(void)
 	write (2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
-
-char	*get_route()
+//*PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/usr/local/munki:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+char	*get_route(char **envp)
 {
 	
 }
@@ -29,7 +29,7 @@ void	execute_command(char **argv, char **envp)
 	char	*route;
 
 	cmd = ft_split(argv, " ");
-	route = get_route();
+	route = get_route(envp);
 	if (execve(route, cmd, envp) == -1)
 		ft_error();
 }
