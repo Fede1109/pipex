@@ -6,7 +6,7 @@
 /*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:03:27 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/11/28 19:03:29 by fdiaz-gu         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:54:57 by fdiaz-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,40 @@
 
 void	ft_error(void)
 {
-	write (2, "Error\n", 6);
+	perror("Error");
 	exit(EXIT_FAILURE);
 }
-//*PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/usr/local/munki:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+
 char	*get_route(char **envp)
 {
-	
+	int		i;
+	char	*envp_path;
+	char	*cmd_route;
+
+	i = 0;
+	envp_path = NULL;
+	cmd_route = NULL;
+	while (envp[i])
+	{
+		if (ft_strncmp("PATH", envp[i], 4) == 0)
+		{
+			envp_path = envp[i];
+			break ;
+		}
+		i++;
+	}
+	return (envp_path);
 }
 
-void	execute_command(char **argv, char **envp)
+void	execute_command(char *argv, char **envp)
 {
 	char	**cmd;
 	char	*route;
+	char	*aux;
 
-	cmd = ft_split(argv, " ");
-	route = get_route(envp);
+	cmd = ft_split(argv, ' ');
+	aux = get_route(envp);
+	route = get_cmd_route(aux, cmd[0]);
 	if (execve(route, cmd, envp) == -1)
 		ft_error();
 }

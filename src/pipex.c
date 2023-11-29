@@ -6,11 +6,31 @@
 /*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:44:40 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/11/28 17:32:58 by fdiaz-gu         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:54:06 by fdiaz-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
+
+char	*get_cmd_route(char *path, char	*cmd)
+{
+	char	**possible_path;
+	char	*cmd_route;
+	int		i;
+
+	i = 0;
+	possible_path = ft_split(path, ':');
+	while (possible_path[i])
+	{
+		cmd_route = ft_strjoin(possible_path[i], cmd);
+		if (access(cmd_route, F_OK) == -1)
+			free(cmd_route);
+		else
+			break ;
+		i++;
+	}
+	return (possible_path[i]);
+}
 
 int	main(int argc, char **argv, char **envp)
 {
