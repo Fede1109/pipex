@@ -6,7 +6,7 @@
 /*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:37:31 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/10/21 17:44:22 by fdiaz-gu         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:52:05 by fdiaz-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ size_t	ft_strlen_gnl(const char *str)
 	{
 		counter++;
 		str++;
-	}	
+	}
 	return (counter);
 }
 
