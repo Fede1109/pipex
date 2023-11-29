@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 13:44:03 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/11/29 12:08:52 by fdiaz-gu         ###   ########.fr       */
+/*   Created: 2023/11/29 17:19:06 by fdiaz-gu          #+#    #+#             */
+/*   Updated: 2023/11/29 17:25:42 by fdiaz-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 # include "../libft/libft.h"
 # include "../libft/ft_printf.h"
 # include "../libft/get_next_line.h"
