@@ -6,7 +6,7 @@
 /*   By: fdiaz-gu <fdiaz-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:03:27 by fdiaz-gu          #+#    #+#             */
-/*   Updated: 2023/11/29 17:29:57 by fdiaz-gu         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:40:44 by fdiaz-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ char	*get_route(char **envp)
 		if (ft_strncmp("PATH", envp[i], 4) == 0)
 		{
 			envp_path = envp[i];
-			break ;
+			return (envp_path);
 		}
 		i++;
 	}
-	return (envp_path);
+	ft_error();
+	return (NULL);
 }
 
 void	execute_command(char *argv, char **envp)
@@ -79,7 +80,7 @@ void	parent_process(char **argv, int *fd, char **envp)
 	if (dup2(fd[0], STDIN_FILENO) == -1)
 		ft_error();
 	if (dup2(file_fd, STDOUT_FILENO) == -1)
-		ft_error();
+		ft_error();	
 	close(fd[0]);
 	execute_command(argv[3], envp);
 }
